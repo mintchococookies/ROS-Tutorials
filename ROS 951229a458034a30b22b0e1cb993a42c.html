@@ -1,0 +1,633 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>ROS</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="25ac6541-2e7f-4dac-990c-b3c8b13389dd" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🤖</span></div><h1 class="page-title">ROS</h1></header><div class="page-body"><ul id="36d371d0-189f-4410-8dd7-8bbea0c323d9" class="bulleted-list"><li><strong>pwd</strong> shows you which directory/path you&#x27;re currently in.</li></ul><ul id="2208d3d4-8e0b-491d-afa1-f576da6527d8" class="bulleted-list"><li><strong>apt-get </strong>is for installing things from the internet</li></ul><ul id="d7d224b9-c928-43d4-8931-cf7d2d5bf87b" class="bulleted-list"><li><strong>sudo </strong>means superuser do - requires your password (admin functionality)</li></ul><ul id="b5e2a092-2ccb-455f-b04d-7a55ed016398" class="bulleted-list"><li><strong>crtl+c</strong> to stop the running terminal</li></ul><ul id="a9b8c4e3-47e6-4ec8-bd34-45d84bdf8ed7" class="bulleted-list"><li><strong>everytime you open a new terminal you should enter (to source ROS) *only applies to the first terminal you open.</strong></li></ul><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="b69a840e-136c-4f71-b428-1ec6b5faca6f" class="code code-wrap"><code>$ <span class="token builtin class-name">source</span> /opt/ros/melodic/setup.bash
+
+<span class="token comment"># This is bc we installed .bash instead of .bashrc</span></code></pre><ul id="6838398e-7029-42fd-abf8-840d5ac6feb8" class="bulleted-list"><li><strong>to enter the catkin workspace you should enter (also when you open a new tab)</strong></li></ul><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="c753a9d9-b49c-4c78-be5c-13d60398e901" class="code code-wrap"><code>$ <span class="token builtin class-name">.</span> ~/catkin_ws/devel/setup.bash
+
+<span class="token comment"># These just sources the setup.bash file which gets read and configures the terminal for us.</span></code></pre><ul id="6bfc44f8-ca79-46e7-a1f6-6e1cca31f7f1" class="bulleted-list"><li><strong>roscore </strong>needs to be run at the start of the ROS terminal in order to run nodes.</li></ul><ul id="cf8fc679-2bc9-4220-b2a9-21bf65960298" class="bulleted-list"><li>to get to the scripts folder within a package just </li></ul><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="cfd2214d-4885-42ca-88b8-e42b75c8a3a3" class="code code-wrap"><code>$ <span class="token builtin class-name">cd</span> scripts</code></pre><ul id="7e79b22e-53aa-460a-955c-1bdd6594cde0" class="bulleted-list"><li>To make a node executable:</li></ul><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="ee0965f8-d139-4fb3-8022-90a751a74709" class="code code-wrap"><code>$ <span class="token function">chmod</span> +x add_two_ints_server.py</code></pre><h2 id="34fd406b-36b5-4e64-8df6-52f03e4b59b5" class="">ROS tutorial:</h2><figure id="6d5c2674-8886-4495-bb2a-5d2078ab3cdc" class="link-to-page"><a href="ROS%20951229a458034a30b22b0e1cb993a42c/1%20Installing%20and%20configuring%20your%20ROS%20environment%206d5c267488864495bb2a5d2078ab3cdc.html">1. Installing and configuring your ROS environment.</a></figure><figure id="aa6b1c06-d02b-417b-a60a-86687b1998f6" class="link-to-page"><a href="ROS%20951229a458034a30b22b0e1cb993a42c/2%20Navigating%20the%20ROS%20file%20system%20aa6b1c06d02b417ba60a86687b1998f6.html">2. Navigating the ROS file system</a></figure><figure id="04199f19-9b1d-4fe6-9eed-21d3a68830a0" class="link-to-page"><a href="ROS%20951229a458034a30b22b0e1cb993a42c/3%20Creating%20a%20ROS%20Package%2004199f199b1d4fe69eed21d3a68830a0.html">3. Creating a ROS Package</a></figure><figure id="3dc73a64-77c8-41d6-937c-e1dcc76520c3" class="link-to-page"><a href="ROS%20951229a458034a30b22b0e1cb993a42c/4%20Building%20a%20ROS%20package%203dc73a6477c841d6937ce1dcc76520c3.html">4. Building a ROS package</a></figure><figure id="3946f0f1-702b-48d1-b5f0-452ea6e83853" class="link-to-page"><a href="ROS%20951229a458034a30b22b0e1cb993a42c/5%20Understanding%20ROS%20Nodes%20(eg;%20running%20turtlesim%20s%203946f0f1702b48d1b5f0452ea6e83853.html">5. Understanding ROS Nodes (eg; running turtlesim steps)</a></figure><figure id="e7127db4-7d74-470f-a626-9c0af3bc54b5" class="link-to-page"><a href="ROS%20951229a458034a30b22b0e1cb993a42c/6%20Understanding%20ROS%20Topics%20e7127db47d74470fa6269c0af3bc54b5.html">6. Understanding ROS Topics</a></figure><figure id="4d69ef90-1791-4c18-86b3-1eb3f437a1f8" class="link-to-page"><a href="ROS%20951229a458034a30b22b0e1cb993a42c/7%20Understanding%20ROS%20Services%20and%20Parameters%204d69ef9017914c1886b31eb3f437a1f8.html">7. Understanding ROS Services and Parameters</a></figure><figure id="8b07f81e-fa32-47a8-a6bf-8f09d6d6af4f" class="link-to-page"><a href="ROS%20951229a458034a30b22b0e1cb993a42c/8%20Using%20rqt_console%20and%20roslaunch%208b07f81efa3247a8a6bf8f09d6d6af4f.html">8. Using rqt_console and roslaunch</a></figure><figure id="ac501043-807c-428b-a42f-46b2ae02369e" class="link-to-page"><a href="ROS%20951229a458034a30b22b0e1cb993a42c/9%20Using%20rosed%20to%20edit%20files%20in%20ROS%20ac501043807c428ba42f46b2ae02369e.html">9. Using rosed to edit files in ROS</a></figure><figure id="99ddf732-73ae-4f12-a15d-cc79739c4c11" class="link-to-page"><a href="ROS%20951229a458034a30b22b0e1cb993a42c/10%20Creating%20a%20ROS%20msg%20and%20srv%2099ddf73273ae4f12a15dcc79739c4c11.html">10. Creating a ROS msg and srv</a></figure><figure id="9a7e0d39-839c-4736-b058-c642ab9fbc84" class="link-to-page"><a href="ROS%20951229a458034a30b22b0e1cb993a42c/11%20Writing%20a%20Simple%20Publisher%20and%20Subscriber%20(Pyth%209a7e0d39839c4736b058c642ab9fbc84.html">11. Writing a Simple Publisher and Subscriber (Python)</a></figure><figure id="d8d1809e-e183-48d5-a76a-bd102cfefb74" class="link-to-page"><a href="ROS%20951229a458034a30b22b0e1cb993a42c/12%20Examining%20the%20Simple%20Publisher%20and%20Subscriber%20d8d1809ee18348d5a76abd102cfefb74.html">12. Examining the Simple Publisher and Subscriber</a></figure><figure id="a9473192-eb16-4038-9d1c-02aadb8c6714" class="link-to-page"><a href="ROS%20951229a458034a30b22b0e1cb993a42c/13%20Writing%20a%20Simple%20Service%20and%20Client%20(Python)%20a9473192eb1640389d1c02aadb8c6714.html">13. Writing a Simple Service and Client (Python)</a></figure><figure id="566e5f08-933b-4bd5-8215-6fde6b4b7935" class="link-to-page"><a href="ROS%20951229a458034a30b22b0e1cb993a42c/14%20Examining%20the%20Simple%20Service%20and%20Client%20566e5f08933b4bd582156fde6b4b7935.html">14. Examining the Simple Service and Client</a></figure><figure id="fe8ca7e0-b678-4ad4-9c3b-47722a4e1d0b" class="link-to-page"><a href="ROS%20951229a458034a30b22b0e1cb993a42c/15%20Recording%20and%20playing%20back%20data%20fe8ca7e0b6784ad49c3b47722a4e1d0b.html">15. Recording and playing back data</a></figure><figure id="68325677-06af-4f5e-967e-507cc78348e0" class="link-to-page"><a href="ROS%20951229a458034a30b22b0e1cb993a42c/16%20Reading%20messages%20from%20a%20bag%20file%206832567706af4f5e967e507cc78348e0.html">16. Reading messages from a bag file</a></figure><figure id="2d7637d8-7128-4ecb-9c4d-19bf2abad3f4" class="link-to-page"><a href="ROS%20951229a458034a30b22b0e1cb993a42c/17%20Getting%20started%20with%20roswtf%202d7637d871284ecb9c4d19bf2abad3f4.html">17. Getting started with roswtf</a></figure><p id="d6bbcc7f-6e78-4d26-a431-50a233c5b7b5" class="">
+</p><ul id="5572fc43-2aa0-4599-97a2-81d18c9c0e0d" class="bulleted-list"><li>List possible arguments taken by ros commands:</li></ul><figure id="951229a4-5803-4a30-b22b-0e1cb993a42c" class="image"><a href="ROS%20951229a458034a30b22b0e1cb993a42c/Untitled.png"><img style="width:791px" src="ROS%20951229a458034a30b22b0e1cb993a42c/Untitled.png"/></a></figure><p id="cdc56bfb-e17b-4c1a-a411-6491305b7f5e" class="">
+</p></div></article></body></html>
